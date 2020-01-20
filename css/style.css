@@ -1,0 +1,32 @@
+/*
+Icarsua project
+Realised by Eddy ADEGNANDJOU
+*/
+
+/* General styles */
+body{
+  font-size: 1.5em;
+  line-height: 1.8em;
+  background: #ffffff;
+  color: #232323;
+}
+
+#top{
+  color: white;
+  background: #555555;
+  padding: 10px;
+}
+
+#top ul.menu {
+  text-align: right;
+  list-style: none;
+}
+
+#top ul.menu > li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#top ul.menu > li a {
+  color: white;
+}
