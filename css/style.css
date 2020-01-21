@@ -30,3 +30,25 @@ body{
 #top ul.menu > li a {
   color: white;
 }
+
+.right{
+  text-align: right;
+}
+
+/* main navigation */
+#navigation{
+  display: flex;
+  justify-content: space-between;
+}
+
+#navigation>form{
+  margin-top: auto;
+}
+
+#navigation>form>button{
+  float: right;
+}
+
+.navbar-brand{
+  float: left;
+}
