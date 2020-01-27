@@ -1,0 +1,1 @@
+<center class="footer">footer</center>
