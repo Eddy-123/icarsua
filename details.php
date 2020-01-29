@@ -122,6 +122,40 @@
                     </a>
                 </div>
             </div>
+            <div class="col-md-6">
+              <div class="box">
+                <h1 class="text-center">Honda</h1>
+                <form action="details.php" class="form-horizontal">
+                  <div class="form-group">
+                    <label for="" class="col-md-5 control-label">Voiture</label>
+                    <div class="col-md-7">
+                      <select name="product_qty" id="" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="col-md-5 control-label">Voiture</label>
+                    <div class="col-md-7">
+                      <select name="product_size" id="" class="form-control">
+                        <option>Caractéristique</option>
+                        <option>Petite</option>
+                        <option>Moyenne</option>
+                        <option>Grande</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
         </div>
     </div>
 </div>
