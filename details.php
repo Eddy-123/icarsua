@@ -85,7 +85,7 @@
 
 
     <div class="col-md-9">
-        <div class="row">
+        <div class="row" id="productMain">
             <div class="col-md-6">
                 <h2></h2>  
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -122,12 +122,13 @@
                     </a>
                 </div>
             </div>
+            
             <div class="col-md-6">
               <div class="box">
                 <h1 class="text-center">Honda</h1>
                 <form action="details.php" class="form-horizontal">
                   <div class="form-group">
-                    <label for="" class="col-md-5 control-label">Voiture</label>
+                    <label for="" class="col-md-5 control-label">Quantité</label>
                     <div class="col-md-7">
                       <select name="product_qty" id="" class="form-control">
                         <option>1</option>
@@ -140,8 +141,9 @@
                       </select>
                     </div>
                   </div>
+                  
                   <div class="form-group">
-                    <label for="" class="col-md-5 control-label">Voiture</label>
+                    <label for="" class="col-md-5 control-label">Taille</label>
                     <div class="col-md-7">
                       <select name="product_size" id="" class="form-control">
                         <option>Caractéristique</option>
@@ -151,14 +153,121 @@
                       </select>
                     </div>
                   </div>
+
+                  <center class="price">500£</center>
+                  <center class="center-text"><a href="">Ajouter</a></center>
+
                 </form>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-4">
+                  <a href=""><img src="admin_area/product_images/product-1.png" alt="" class="img-responsive"></a>
+                </div>
+              
+                <div class="col-xs-4">
+                  <a href=""><img src="admin_area/product_images/product-2.png" alt="" class="img-responsive"></a>
+                </div>
+              
+                <div class="col-xs-4">
+                  <a href=""><img src="admin_area/product_images/product-3.png" alt="" class="img-responsive"></a>
+                </div>
+              
               </div>
             </div>
 
 
         </div>
+
+        <div id="details">
+          <h4>Honda</h4>
+          <p>
+            Honda Motor Co., Ltd, ou plus simplement Honda,
+             est un constructeur automobile. C'est également un constructeur
+              de motocyclettes, d'ATVs, de scooters, d'avions d'affaires, 
+              de générateurs électriques, de moteurs de bateaux et d'équipements
+               de jardinage et de bricolage.
+          </p>
+          <h4>Autres caractéristiques</h4>
+          <ul>
+            <li>Petite</li>
+            <li>Moyenne</li>
+            <li>Grande</li>
+          </ul>
+          <hr>
+        </div>
+
+        <div class="row">
+          <h3>Suggestions de voitures</h3>
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-</div>
 
     <?php include("includes/footer.php"); ?>
   </body>
