@@ -79,63 +79,111 @@
     </nav>
 
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-9" id="cart">
+      <form action="cart.php" method="post">
         <div class="table responsive">
         
             <table class="table table-striped">
             <thead>
                 <tr>
-                <th scope="col" colspan="2">Voiture</th>
-                <th scope="col">Quantité</th>
-                <th scope="col">Prix unitaire</th>
-                <th scope="col">Taille</th>
-                <th scope="col" colspan="1">Supprimer</th>
-                <th scope="col" colspan="2">Total partiel</th>
+                <th colspan="2">Voiture</th>
+                <th >Quantité</th>
+                <th >Prix unitaire</th>
+                <th >Taille</th>
+                <th >Supprimer</th>
+                <th >Total partiel</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                <th scope="row">
-                    <img src="admin_area/product_images/product-1.png" class="img-responsive" style="width:50%" alt="">
-                </th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td class="">
+                    <img src="admin_area/product_images/product-2.png" class="img-responsive"  alt="">
+                </td>
+                <td><a href="#">Honda</a></td>
+                <td>2</td>
+                <td>500£</td>
+                <td>Grande</td>
+                <td>
+                  <input type="checkbox" name="remove[]">
+                </td>
+                <td>1000£</td>
                 </tr>
                 <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                </tr>
             </tbody>
-            </table>
+            <tbody>
+                <tr>
+                <td class="">
+                    <img src="admin_area/product_images/product-1.png" class="img-responsive"  alt="">
+                </td>
+                <td><a href="#">Honda</a></td>
+                <td>2</td>
+                <td>500£</td>
+                <td>Grande</td>
+                <td>
+                  <input type="checkbox" name="remove[]">
+                </td>
+                <td>1000£</td>
+                </tr>
+                <tr>
+            </tbody>
+            <tbody>
+                <tr>
+                <td class="">
+                    <img src="admin_area/product_images/product-3.png" class="img-responsive"  alt="">
+                </td>
+                <td><a href="#">Honda</a></td>
+                <td>2</td>
+                <td>500£</td>
+                <td>Grande</td>
+                <td>
+                  <input type="checkbox" name="remove[]">
+                </td>
+                <td>1000£</td>
+                </tr>
+                <tr>
+            </tbody>
+            <tbody>
+                <tr>
+                <td class="">
+                    <img src="admin_area/product_images/product-2.png" class="img-responsive"  alt="">
+                </td>
+                <td><a href="#">Honda</a></td>
+                <td>2</td>
+                <td>500£</td>
+                <td>Grande</td>
+                <td>
+                  <input type="checkbox" name="remove[]">
+                </td>
+                <td>1000£</td>
+                </tr>
+                <tr>
+            </tbody>
 
+            <tfoot>
+              <th colspan="5">Total</th>
+              <th colspan="2">1000£</th>
+            </tfoot>
+            </table>
         </div>
+
+        <div class="">
+          <div class="pull-left">
+              <button type="submit" name="update">
+                Actualiser
+              </button>              
+          </div>
+          <div class="pull-right">            
+            <button class="pull-left">
+              <a href="checkout.php">Payement</a>
+            </button>
+          </div>
+          
+        </div>
+      </form>
     </div>
 </div>
     
-    <center>
-          <nav aria-label="...">
-            <ul class="pagination pagination-lg">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">1</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-            </ul>
-          </nav>
-        </center>
-      
     
-    
-    <p></p><p></p>
     <?php include("includes/footer.php"); ?>
   </body>
 </html>

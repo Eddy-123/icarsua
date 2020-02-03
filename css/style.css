@@ -138,3 +138,13 @@ body{
 #content .product .text{
   text-align: center;
 }
+
+.test img{
+  border: 1px solid red;
+  padding: 0%;
+  margin: 0%;
+}
+
+#cart table tbody tr td img{
+  width: 150px;
+}
