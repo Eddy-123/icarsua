@@ -81,6 +81,7 @@
 <div class="row">
     <div class="col-md-9" id="cart">
       <form action="cart.php" method="post">
+      <h1>Panier</h1>
         <div class="table responsive">
         
             <table class="table table-striped">
@@ -180,6 +181,106 @@
           
         </div>
       </form>
+      <br><br>
+      <div class="">
+      
+          <h3>Suggestions de voitures</h3>
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-3">
+            <div class="product">
+              <a href="details.php">
+              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
+              </a>
+              <div class="text">
+                <h3>
+                  <a href="details.php">Honda</a>
+                </h3>
+                <p class="price">
+                  500£   
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+    <h1>Bilan</h1>
+    <p class="text-muted">Détail de vos achats</p>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Commandes</td>
+              <th>1000£</th>
+            </tr>
+            <tr>
+              <td>Livraison</td>
+              <td>0£</td>
+            </tr>
+            <tr>
+              <td>Tax</td>
+              <td>0£</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>1000£</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 </div>
     
