@@ -119,7 +119,7 @@
                 </div>
                 <div class="form-group">
                     <label for="c_image">Votre photo de profil</label>
-                    <input type="file" class="form-control" name="c_image" required>
+                    <input type="file" class="form-control form-height-custom" name="c_image" required>
                 </div>
                 <div class="text-center">
                     <button type="submit" name="register">S'inscrire</button>

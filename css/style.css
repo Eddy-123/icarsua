@@ -151,3 +151,11 @@ body{
 #cart table tbody tr td img{
   width: 150px;
 }
+
+/* Firefox only */
+
+@-moz-document url-prefix(){
+  .form-height-custom{
+    height: auto;
+  }
+}
