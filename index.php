@@ -50,7 +50,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.php">Acceuil</a></li>
               <li><a href="shop.php">Boutique</a></li>
-              <li><a href="checkout.php">Compte</a></li>
+              <li><a href="customer/my_account.php">Compte</a></li>
               <li><a href="cart.php">Panier</a></li>
               <li><a href="contact.php">Contact</a></li>
             </ul>

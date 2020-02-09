@@ -1,3 +1,7 @@
+<?
+session_start();
+$racine = $_SESSION['RACINE'];
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,7 +17,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js" defer></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="js/index.js" defer></script>
   </head>
   <body>
@@ -29,9 +33,9 @@
         <div class="col-md-6"><!-- col-md-6 begin -->
 
           <ul class="menu">
-            <li> <a href="customer_registration.php">Inscription</a> </li>
-            <li> <a href="checkout.php">Connection</a> </li>
-            <li> <a href="cart.php">Panier</a> </li>
+            <li> <a href="../customer_registration.php">Inscription</a> </li>
+            <li> <a href="../checkout.php">Connection</a> </li>
+            <li> <a href="../cart.php">Panier</a> </li>
           </ul>
 
         </div><!-- col-md-6 end -->
@@ -44,15 +48,15 @@
     
       <div class="container">
 
-        <a href="index.php" class="navbar-brand">LOGO</a>
+        <a href="../index.php" class="navbar-brand">LOGO</a>
         
         <div class="" id="navigation">
             <ul class="nav navbar-nav">
-              <li><a href="index.php">Acceuil</a></li>
-              <li><a href="shop.php">Boutique</a></li>
-              <li><a href="customer/my_account.php">Compte</a></li>
-              <li><a href="cart.php">Panier</a></li>
-              <li class="active"><a href="contact.php">Contact</a></li>
+              <li><a href="../index.php">Acceuil</a></li>
+              <li><a href="../shop.php">Boutique</a></li>
+              <li class="active"><a href="my_account.php">Compte</a></li>
+              <li><a href="../cart.php">Panier</a></li>
+              <li><a href="../contact.php">Contact</a></li>
             </ul>
           
             <!-- Search form -->
@@ -73,44 +77,15 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.php">Acceuil</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            <li class="breadcrumb-item"><a href="../index.php">Acceuil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Compte</li>
         </ol>
     </nav>
 
     <div class="col-md-3">
-        <?php include("includes/sidebar.php"); ?>  
+        <?php include("../includes/sidebar.php"); ?>  
     </div>    
-
-    <div class="col-md-9">
-        <center>        
-            <h3 class="text-muted">
-                N'hésitez pas à nous contacter !
-            </h3>
-            <form action="contact.php" method="post">
-                <div class="form-group">
-                    <label for="name">Nom</label>
-                    <input type="text" class="form-control" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" class="form-control" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="message" class="form-control"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" name="submit">Envoyer</button>
-                </div>
-            </form>
-        </center>
-    </div>
-
-    <?php include("includes/footer.php"); ?>
+    
+    <?php include("../includes/footer.php"); ?>
   </body>
 </html>
