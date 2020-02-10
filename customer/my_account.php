@@ -83,7 +83,7 @@ $racine = $_SESSION['RACINE'];
     </nav>
 
     <div class="col-md-3">
-        <?php include("../includes/sidebar.php"); ?>  
+        <?php include("includes/sidebar.php"); ?>  
     </div>    
     
     <?php include("../includes/footer.php"); ?>
