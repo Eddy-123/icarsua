@@ -85,6 +85,18 @@ $racine = $_SESSION['RACINE'];
     <div class="col-md-3">
         <?php include("includes/sidebar.php"); ?>  
     </div>    
+
+    <div class="div col-md-9">
+    
+      <?php
+        if(isset($_GET['my_orders'])){
+          include("my_orders.php");
+        }
+
+
+      ?>
+
+    </div>
     
     <?php include("../includes/footer.php"); ?>
   </body>
