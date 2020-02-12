@@ -159,3 +159,7 @@ body{
     height: auto;
   }
 }
+
+table.orders{
+  text-align: center;
+}
