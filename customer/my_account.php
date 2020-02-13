@@ -93,7 +93,9 @@ $racine = $_SESSION['RACINE'];
           include("my_orders.php");
         }
 
-
+        if(isset($_GET['pay_offline'])){
+          include("pay_offline.php");
+        }
       ?>
 
     </div>
