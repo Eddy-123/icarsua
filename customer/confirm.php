@@ -98,6 +98,40 @@ $racine = $_SESSION['RACINE'];
                 <label for="">Montant payé</label>
                 <input type="text" name="amount_sent" required class="form-control">
             </div>
+
+            <div class="form-group">
+                <label for="">Mode de payement</label>
+                <select name="payment_mode" id="" class="form-control">
+                  <option>Choisir un mode de payement</option>
+                  <option>Code de retour</option>
+                  <option>UBA</option>
+                  <option>Paysera</option>
+                  <option>Western Union</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Transaction / Référence ID</label>
+                <input type="text" name="ref_no" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">UBA / Paysera</label>
+                <input type="text" name="code" required class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="">Date de payement</label>
+                <input type="text" name="date" required class="form-control">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-default">
+                Confirmer Payement
+              </button>
+            </div>
+
+
         </form>
     </div>
     <?php include("../includes/footer.php"); ?>
