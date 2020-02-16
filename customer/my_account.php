@@ -96,6 +96,14 @@ $racine = $_SESSION['RACINE'];
         if(isset($_GET['pay_offline'])){
           include("pay_offline.php");
         }
+
+        if(isset($_GET['edit_account'])){
+          include("edit_account.php");
+        }
+
+        if(isset($_GET['change_pass'])){
+          include("change_pass.php");
+        }
       ?>
 
     </div>
