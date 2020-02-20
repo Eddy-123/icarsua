@@ -55,10 +55,49 @@ include("includes/db.php");
                                     <?php
                                         $get_p_cats = "SELECT * FROM product_categories";
                                         $run_p_cats = mysqli_query($con, $get_p_cats);
+
+                                        while($row_p_cats = mysqli_fetch_array($run_p_cats)){
+                                            $p_cat_id = $row_p_cats['p_cat_id'];
+                                            $p_cat_title = $row_p_cats['p_cat_title'];
+
+                                            echo "
+                                                <option value='$p_cat_id'>$p_cat_title</option>
+                                            ";
+                                        }
                                     ?>
                                 </select>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-3 control-label">Categorie</label>
+                            <div class="col-md-6">
+                                <select name="product_cat" id="" class="form-control">
+                                    <option value="">Sélectionner une catégorie</option>
+                                    <?php
+                                        $get_cat = "SELECT * FROM categories";
+                                        $run_cat = mysqli_query($con, $get_cat);
+
+                                        while($row_cat = mysqli_fetch_array($run_cat)){
+                                            $cat_id = $row_cat['cat_id'];
+                                            $cat_title = $row_cat['cat_title'];
+
+                                            echo "
+                                                <option value='$cat_id'>$cat_title</option>
+                                            ";
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="col-md-3 control-label">Image de la voiture</label>
+                            <div class="col-md-6">
+                                <input name="product_img1" type="file" class="form-control" required>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
