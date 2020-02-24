@@ -13,15 +13,13 @@ include("includes/db.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" id="bootstrap-css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js" defer></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="js/index.js" defer></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({selector:'textarea'});</script>
 </head>
 <body>
     <div class="row">
@@ -136,7 +134,14 @@ include("includes/db.php");
                         <div class="form-group">
                             <label for="" class="col-md-3 control-label">Description de la voiture</label>
                             <div class="col-md-6">
-                                <textarea name="product_desc" rows="8" cols="80" class="form-control"></textarea>
+                                <textarea name="product_desc" rows="6" cols="19" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <input type="submit" name="submit" value="Insérer" class="form-control">
                             </div>
                         </div>
                     </form>
