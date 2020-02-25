@@ -37,11 +37,11 @@ include("includes/db.php");
                     <h3 class="panel-title">Insérer une voiture</h3>
                 </div>
                 <div class="panel-body">
-                    <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="" method="post" action = "insert_product.php" class="form-horizontal" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="" class="col-md-3 control-label">Titre de la voiture</label>
                             <div class="col-md-6">
-                                <input name="product-title" type="text" class="form-control" required>
+                                <input name="product_title" type="text" class="form-control" required>
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@ include("includes/db.php");
                         <div class="form-group">
                             <label for="" class="col-md-3 control-label">Categorie</label>
                             <div class="col-md-6">
-                                <select name="product_cat" id="" class="form-control">
+                                <select name="cat" id="" class="form-control">
                                     <option value="">Sélectionner une catégorie</option>
                                     <?php
                                         $get_cat = "SELECT * FROM categories";
@@ -86,13 +86,6 @@ include("includes/db.php");
                                         }
                                     ?>
                                 </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Première image de la voiture</label>
-                            <div class="col-md-6">
-                                <input name="product_img1" type="file" class="form-control" required>
                             </div>
                         </div>
 
@@ -151,3 +144,40 @@ include("includes/db.php");
     </div>
 </body>
 </html>
+
+<?php
+
+if(isset($_POST['submit'])){
+
+    $product_title = $_POST['product_title'];
+    $product_cat = $_POST['product_cat'];
+    $cat = $_POST['cat'];
+    $product_price = $_POST['product_price'];
+    $product_keywords = $_POST['product_keywords'];
+    $product_desc = $_POST['product_desc'];
+
+    $product_img1 = $_FILES['product_img1']['name'];
+    $product_img2 = $_FILES['product_img2']['name'];
+    $product_img3 = $_FILES['product_img3']['name'];
+
+    $tmp_name1 = $_FILES['product_img1']['tmp_name'];
+    $tmp_name2 = $_FILES['product_img2']['tmp_name'];
+    $tmp_name3 = $_FILES['product_img3']['tmp_name'];
+
+    //move_uploaded_file($tmp_name1, "product_images/$product_img1");
+    //move_uploaded_file($tmp_name2, "product_images/$product_img2");
+    //move_uploaded_file($tmp_name3, "product_images/$product_img3");
+
+    $insert_product = "INSERT INTO products
+    (p_cat_id, cat_id, date, product_title, product_img1, product_img2, product_img3, product_price, product_keywords, product_desc) 
+    VALUES('$product_cat', '$cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price', '$product_keywords', '$product_desc')";
+
+    $run_product = mysqli_query($con, $insert_product);
+    
+    if($run_product){
+        echo "<script>alert('Insertion du produit réussi')</script>";
+        echo "<script>window.open('insert_product.php', '_self')</script>";
+    }
+}
+
+?>
