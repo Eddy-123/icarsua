@@ -1,5 +1,6 @@
 <?php 
 include("includes/db.php");
+include("functions/functions.php")
 ?>
 
 <!DOCTYPE html>
@@ -137,7 +138,7 @@ include("includes/db.php");
   
   <h2>Les nouvelles voitures</h2>
   <div class="container-fluid" id="content">
-    <div class="row">
+    <div class="row"><!--
       <div class="col-sm-4">
         <div class="product">
           <a href="details.php">
@@ -317,7 +318,11 @@ include("includes/db.php");
             </p>
           </div>
         </div>
-      </div>
+      </div> -->
+
+      <?php
+        getProducts();
+      ?>
     </div>
   </div>
 
