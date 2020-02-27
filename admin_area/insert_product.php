@@ -37,19 +37,20 @@ include("includes/db.php");
                     <h3 class="panel-title">Insérer une voiture</h3>
                 </div>
                 <div class="panel-body">
-                    <form action="" method="post" action = "insert_product.php" class="form-horizontal" enctype="multipart/form-data">
+                <p>Formulaire</p>
+                    <form method="post" class="form-horizontal" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="" class="col-md-3 control-label">Titre de la voiture</label>
                             <div class="col-md-6">
                                 <input name="product_title" type="text" class="form-control" required>
                             </div>
-                        </div>
+                        </div><!--product_title-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Categorie de la voiture</label>
+                            <label class="col-md-3 control-label">Categorie de la voiture</label>
                             <div class="col-md-6">
-                                <select name="product_cat" id="" class="form-control">
-                                    <option value="">Sélectionner une catégorie de voiture</option>
+                                <select name="product_cat" class="form-control">
+                                    <option>Sélectionner une catégorie de voiture</option>
                                     <?php
                                         $get_p_cats = "SELECT * FROM product_categories";
                                         $run_p_cats = mysqli_query($con, $get_p_cats);
@@ -65,13 +66,13 @@ include("includes/db.php");
                                     ?>
                                 </select>
                             </div>
-                        </div>
+                        </div><!--product_cat-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Categorie</label>
+                            <label class="col-md-3 control-label">Categorie</label>
                             <div class="col-md-6">
-                                <select name="cat" id="" class="form-control">
-                                    <option value="">Sélectionner une catégorie</option>
+                                <select name="cat" class="form-control">
+                                    <option>Sélectionner une catégorie</option>
                                     <?php
                                         $get_cat = "SELECT * FROM categories";
                                         $run_cat = mysqli_query($con, $get_cat);
@@ -87,56 +88,56 @@ include("includes/db.php");
                                     ?>
                                 </select>
                             </div>
-                        </div>
+                        </div><!--cat-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Première image de la voiture</label>
+                            <label class="col-md-3 control-label">Première image de la voiture</label>
                             <div class="col-md-6">
                                 <input name="product_img1" type="file" class="form-control" required>
                             </div>
-                        </div>
+                        </div><!--product_img1-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Deuxième image de la voiture</label>
+                            <label class="col-md-3 control-label">Deuxième image de la voiture</label>
                             <div class="col-md-6">
-                                <input name="product_img2" type="file" class="form-control" required>
+                                <input name="product_img2" type="file" class="form-control">
                             </div>
-                        </div>
+                        </div><!--product_img2-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Troisième image de la voiture</label>
+                            <label class="col-md-3 control-label">Troisième image de la voiture</label>
                             <div class="col-md-6">
-                                <input name="product_img3" type="file" class="form-control" required>
+                                <input name="product_img3" type="file" class="form-control">
                             </div>
-                        </div>
+                        </div><!--product_img3-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Prix de la voiture</label>
+                            <label class="col-md-3 control-label">Prix de la voiture</label>
                             <div class="col-md-6">
                                 <input name="product_price" type="text" class="form-control" required>
                             </div>
-                        </div>
+                        </div><!--product_price-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Mots clés de la voiture</label>
+                            <label class="col-md-3 control-label">Mots clés de la voiture</label>
                             <div class="col-md-6">
                                 <input name="product_keywords" type="text" class="form-control" required>
                             </div>
-                        </div>
+                        </div><!--product_keywords-->
 
                         <div class="form-group">
-                            <label for="" class="col-md-3 control-label">Description de la voiture</label>
+                            <label class="col-md-3 control-label">Description de la voiture</label>
                             <div class="col-md-6">
                                 <textarea name="product_desc" rows="6" cols="19" class="form-control"></textarea>
                             </div>
-                        </div>
+                        </div><!--product_desc-->
 
                         <div class="form-group">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
                                 <input type="submit" name="submit" value="Insérer" class="form-control">
                             </div>
-                        </div>
+                        </div><!--submit-->
                     </form>
                 </div>
             </div>
@@ -164,16 +165,31 @@ if(isset($_POST['submit'])){
     $tmp_name2 = $_FILES['product_img2']['tmp_name'];
     $tmp_name3 = $_FILES['product_img3']['tmp_name'];
 
-    //move_uploaded_file($tmp_name1, "product_images/$product_img1");
-    //move_uploaded_file($tmp_name2, "product_images/$product_img2");
-    //move_uploaded_file($tmp_name3, "product_images/$product_img3");
+    /********************** */
+    echo $product_title."\n";
+    echo $product_cat."\n";
+    echo $cat."\n";
+    echo $product_price."\n";
+    echo $product_keywords."\n";
+    echo $product_desc."\n";
+    echo "produit image";
+    echo $product_img1."\n";
+    echo $product_img2."\n";
+    echo $product_img3."\n";
+    echo "temporelle image";
+    echo $tmp_name1."\n";
+    echo $tmp_name2."\n";
+    echo $tmp_name3."\n";
 
-    $insert_product = "INSERT INTO products
-    (p_cat_id, cat_id, date, product_title, product_img1, product_img2, product_img3, product_price, product_keywords, product_desc) 
-    VALUES('$product_cat', '$cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price', '$product_keywords', '$product_desc')";
+
+    move_uploaded_file($tmp_name1, "product_images/$product_img1");
+    move_uploaded_file($tmp_name2, "product_images/$product_img2");
+    move_uploaded_file($tmp_name3, "product_images/$product_img3");
+
+    $insert_product = "INSERT INTO products (p_cat_id, cat_id, date, product_title, product_img1, product_img2, product_img3, product_price, product_keywords, product_desc) VALUES ('$product_cat', '$cat', NOW(), '$product_title', '$product_img1', '$product_img2', '$product_img3', '$product_price', '$product_keywords', '$product_desc');";
 
     $run_product = mysqli_query($con, $insert_product);
-    
+    var_dump($run_product);
     if($run_product){
         echo "<script>alert('Insertion du produit réussi')</script>";
         echo "<script>window.open('insert_product.php', '_self')</script>";
