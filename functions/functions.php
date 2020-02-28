@@ -17,12 +17,12 @@ function getProducts(){
         $product_title = $row_products['product_title'];
         $product_price = $row_products['product_price'];
         $product_img1 = $row_products['product_img1'];
-echo $product_title;
+
         echo "
             <div class='col-sm-4'>
             <div class='product'>
                 <a href='details.php?product_id=$product_id'>
-                <img class='img-responsive' src='admin_area/product_images/$product_img1' alt='produit'>
+                <img class='img-responsive same-height' src='admin_area/product_images/$product_img1' alt='produit'>
                 </a>
                 <div class='text'>
                 <h3>
@@ -32,6 +32,7 @@ echo $product_title;
                     $product_price  
                 </p>
                 </div>
+            </div>
             </div>
         ";
     }

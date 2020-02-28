@@ -65,6 +65,10 @@ body{
   height: auto;
 }
 
+.same-height{
+  height: 250px;
+}
+
 /* ------------------- Carousel Styling ------------------- */
 
 .carousel-inner {
