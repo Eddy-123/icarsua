@@ -39,4 +39,22 @@ function getProducts(){
 
 }
 
+function getProductCategories(){
+    global $db;
+
+    $get_product_categories = "SELECT * FROM product_categories";
+    
+    $run_product_categories = mysqli_query($db, $get_product_categories);
+
+    while($row_product_categories = mysqli_fetch_array($run_product_categories)){
+        $product_category_id = $row_product_categories['product_category_id'];
+        $product_category_title = $row_product_categories['product_category_title'];
+        $product_category_description = $row_product_categories['product_category_description'];
+        
+        echo "            
+            <li class='list-group-item'><a href='shop.php?product_category_id=$product_category_id'>$product_category_title</a></li>
+        ";
+    }
+
+}
 ?>

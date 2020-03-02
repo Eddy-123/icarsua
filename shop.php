@@ -1,3 +1,6 @@
+<?php
+include("functions/functions.php");
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

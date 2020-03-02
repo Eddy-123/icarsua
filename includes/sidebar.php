@@ -23,42 +23,8 @@
     </div>
   </div>
 </div>-->
-
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-        Berline</a>
-      </h4>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">La berline est une catégorie de carrosserie automobile. 
-      Elle correspond à une auto de taille moyenne, mesurant le plus souvent entre 
-      4 et 5 mètres de long, avec un toit rigide et fixe</div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-        4x4</a>
-      </h4>
-    </div>
-    <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">Véhicule tout-terrain, capable de rouler sur des sols 
-      et de franchir des obstacles qui auraient bloqué la plupart des automobiles.</div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-        Pick up</a>
-      </h4>
-    </div>
-    <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">Véhicule léger muni d'un espace ouvert à l'arrière. </div>
-    </div>
-  </div>
-</div> 
+<?php
+echo "<ul class='list-group'>";
+  getProductCategories();
+echo "</ul>";
+?>
