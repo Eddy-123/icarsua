@@ -90,200 +90,57 @@ include("functions/functions.php");
       <p>Bienvenue dans la boutique</p>
 
       <div class="row">
-        <div class="col-sm-4">
-          <div class="product">
-            <a href="details.php">
-            <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-            </a>
-            <div class="text">
-              <h3>
-                <a href="details.php">Honda</a>
-              </h3>
-              <p class="price">
-                500£   
-              </p>
+      <?php
+        if(!isset($_GET['product_category_id'])){
+          $per_page = 6;
+          if(isset($_GET['page'])){
+            $page = $_GET['page'];
+          }else{
+            $page = 1;
+          
+          
+          $start_from = ($page - 1) * $per_page;
+          $get_products = "SELECT * FROM products"; // ORDER BY id product_id DESC LIMIT '$start_from', '$per_page'
+          $run_products = mysqli_query($db, $get_products);
+          
+          while($row_products = mysqli_fetch_array($run_products)){
+            $product_id = $row_products['product_id'];
+            $product_title = $row_products['product_title'];
+            $product_price = $row_products['product_price'];
+            $product_img1 = $row_products['product_img1'];
+
+            echo "
+            <div class='col-sm-4'>
+            <div class='product'>
+                <a href='details.php?product_id=$product_id'>
+                <img class='img-responsive same-height' src='admin_area/product_images/$product_img1' alt='produit'>
+                </a>
+                <div class='text'>
+                <h3>
+                    <a href='details.php?product_id=$product_id'>$product_title</a>
+                </h3>
+                <p class='price'>
+                    $product_price  
+                </p>
+                </div>
             </div>
-          </div>
-        </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
+            </div>
+        ";
+            }
+          }
+      ?>
+
       </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-2.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-2.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-2.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      </div>
-      </div>
+    </div>
       
         
         <center>
-          <nav aria-label="...">
-            <ul class="pagination pagination-lg">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">1</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-            </ul>
-          </nav>
+          <ul class="pagination">
+            <?php
+              
+              }
+              ?>
+          </ul>
         </center>
       
     
