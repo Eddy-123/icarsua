@@ -97,7 +97,7 @@ include("functions/functions.php");
             $page = $_GET['page'];
           }else{
             $page = 1;
-          
+          }
           
           $start_from = ($page - 1) * $per_page;
           $get_products = "SELECT * FROM products"; // ORDER BY id product_id DESC LIMIT '$start_from', '$per_page'
@@ -126,7 +126,7 @@ include("functions/functions.php");
             </div>
             </div>
         ";
-            }
+          
           }
       ?>
 
@@ -137,8 +137,28 @@ include("functions/functions.php");
         <center>
           <ul class="pagination">
             <?php
-              
+
+              $query = "SELECT * FROM products";
+              $result = mysqli_query($db, $query);
+              $total_records = mysqli_num_rows($result);
+
+              $total_pages = ceil($total_records / $per_page);
+
+              echo "
+                <li><a href='shop.php?page=1'>Première page</a></li>
+              ";
+
+              for($i = 1; $i <= $total_pages; $i++){
+                echo "
+                <li><a href='shop.php?page=".$i."'>".$i."</a></li>
+              ";
               }
+
+              echo "
+                <li><a href='shop.php?page=".$total_pages."'>Dernière page</a></li>
+              ";
+
+               }
               ?>
           </ul>
         </center>
