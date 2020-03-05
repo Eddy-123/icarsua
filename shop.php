@@ -162,10 +162,12 @@ include("functions/functions.php");
               ?>
           </ul>
         </center>
-      
-    
-    
-    <p></p><p></p>
+
+        <div class="row">
+               <?php
+                getCategoryProducts();
+               ?>
+        </div>
     <?php include("includes/footer.php"); ?>
   </body>
 </html>
