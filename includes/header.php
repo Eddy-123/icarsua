@@ -13,6 +13,7 @@ if(isset($_GET['product_id'])){
     $product_img2 = $row_product['product_img2'];
     $product_img3 = $row_product['product_img3'];
     $product_desc = $row_product['product_desc'];
+    $product_price = $row_product['product_price'];
 
     $get_category = "SELECT * FROM categories WHERE cat_id = $cat_id";
     $run_category = mysqli_query($con, $get_category);

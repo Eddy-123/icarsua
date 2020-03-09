@@ -59,7 +59,7 @@
             <div class="col-md-6">
               <div class="box">
                 <h1 class="text-center"><?= $product_title ?></h1>
-                <form action="details.php" class="form-horizontal">
+                <form action="index.php?add_cart=<?= $product_id ?>" class="form-horizontal">
                   <div class="form-group">
                     <label for="" class="col-md-5 control-label">Quantité</label>
                     <div class="col-md-7">
@@ -87,7 +87,7 @@
                     </div>
                   </div>
 
-                  <center class="price">500£</center>
+                  <center class="price"><?= $product_price ?>£</center>
                   <center class="center-text"><a href="">Ajouter</a></center>
 
                 </form>
@@ -113,13 +113,9 @@
         </div>
 
         <div id="details">
-          <h4>Honda</h4>
+          <h4><?= $product_title ?></h4>
           <p>
-            Honda Motor Co., Ltd, ou plus simplement Honda,
-             est un constructeur automobile. C'est également un constructeur
-              de motocyclettes, d'ATVs, de scooters, d'avions d'affaires, 
-              de générateurs électriques, de moteurs de bateaux et d'équipements
-               de jardinage et de bricolage.
+            <?= $product_desc ?>
           </p>
           <h4>Autres caractéristiques</h4>
           <ul>
@@ -133,72 +129,37 @@
         <div class="row">
           <h3>Suggestions de voitures</h3>
 
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
+          <?php
+            $get_products = "SELECT * FROM products ORDER BY product_id DESC LIMIT 0, 3"; // ORDER BY id product_id DESC LIMIT '$start_from', '$per_page'
+            $run_products = mysqli_query($con, $get_products);
+            
+            while($row_products = mysqli_fetch_array($run_products)){
+              $product_id = $row_products['product_id'];
+              $product_title = $row_products['product_title'];
+              $product_price = $row_products['product_price'];
+              $product_img1 = $row_products['product_img1'];
+  
+              echo "
+              <div class='col-sm-4'>
+              <div class='product'>
+                  <a href='details.php?product_id=$product_id'>
+                  <img class='img-responsive same-height' src='admin_area/product_images/$product_img1' alt='produit'>
+                  </a>
+                  <div class='text'>
+                  <h3>
+                      <a href='details.php?product_id=$product_id'>$product_title</a>
+                  </h3>
+                  <p class='price'>
+                      $product_price  
+                  </p>
+                  </div>
               </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
               </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
-              </div>
-            </div>
-          </div>
+          ";
+            
+            }
+        
+          ?>
         </div>
     </div>
 
