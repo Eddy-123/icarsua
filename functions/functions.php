@@ -2,6 +2,37 @@
 
 $db = mysqli_connect("localhost", "root", "", "icarsua");
 
+function getRealIpUser(){
+    switch(true){
+        case(!empty($_SERVER['HTTP_X_REAL_IP'])): return $_SERVER['HTTP_X_REAL_IP'];
+        case(!empty($_SERVER['HTTP_CLIENT_IP'])): return $_SERVER['HTTP_CLIENT_IP'];
+        case(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])): return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+        default: return $_SERVER['REMOTE_ADDR'];
+    }
+}
+
+function add_cart(){
+    global $db;
+    if(isset($_GET['add_cart'])){
+        $ip_address = getRealIpUser();
+        $product_id = $_GET['add_cart'];
+        $product_qty = $_POST['product_qty'];
+        $product_size = $_POST['product_size'];
+
+        $check_product = "SELECT * FROM cart WHERE product_id = $product_id AND ip_address = $ip_address";
+        $run_check = mysqli_query($db, $check_product);
+
+        if(mysqli_num_rows($run_check) > 0){
+            echo "<script>alert('Ce produit est déjà ajouté au panier')</script>";
+            echo "<script>window.open('details.php?product_id=$product_id','_self')</script>";
+            
+        } else {
+            $query = "INSERT INTO cart(product_id, ip_address, quantity, size) VALUES($product_id, $ip_address, $quantity, $size)";
+        }
+    }
+}
+
 function getProducts(){
     global $db;
 

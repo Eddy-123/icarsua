@@ -59,7 +59,10 @@
             <div class="col-md-6">
               <div class="box">
                 <h1 class="text-center"><?= $product_title ?></h1>
-                <form action="index.php?add_cart=<?= $product_id ?>" class="form-horizontal">
+                
+                <?php add_cart(); ?>
+
+                <form action="details.php?add_cart=<?= $product_id ?>" class="form-horizontal" method="post">
                   <div class="form-group">
                     <label for="" class="col-md-5 control-label">Quantité</label>
                     <div class="col-md-7">
