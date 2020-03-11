@@ -30,18 +30,33 @@ if(isset($_GET['product_id'])){
     <meta charset="utf-8">
     <title>Icarsua</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" id="bootstrap-css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" id="bootstrap-css">-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
       
-    
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+      var myobj = jQuery('input.form-control');
+      myobj.on('keyup keypress blur change input', function() {
+        var messg = ($(this).data('invalidMessage'));
+        if (this.validity.typeMismatch) {
+          this.setCustomValidity(messg);
+        } else {
+          this.setCustomValidity('');
+        }
+      });
+    </script>
+
+    <!--
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js" defer></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" defer></script>
     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="js/index.js" defer></script>
+    -->    
   </head>
   <body>
 

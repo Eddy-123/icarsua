@@ -81,8 +81,9 @@
                   <div class="form-group">
                     <label for="" class="col-md-5 control-label">Taille</label>
                     <div class="col-md-7">
-                      <select name="product_size" id="" class="form-control">
-                        <option>Caractéristique</option>
+                      <select name="product_size" id="" class="form-control" required oninput="setCustomValidity('')"
+                      data-invalid-message="Veuillez préciser une caractéristique">
+                        <option disabled selected>Caractéristique</option>
                         <option>Petite</option>
                         <option>Moyenne</option>
                         <option>Grande</option>
@@ -91,7 +92,9 @@
                   </div>
 
                   <center class="price"><?= $product_price ?>£</center>
-                  <center class="center-text"><a href="">Ajouter</a></center>
+                  <!--<center class="center-text"><button type="submit" value="Ajouter"></button></center>-->
+                  <p class="text-center buttons"><button class="btn btn-default i fa fa-shopping-cart"> Add to cart</button></p>
+                               
 
                 </form>
               </div>
@@ -133,7 +136,7 @@
           <h3>Suggestions de voitures</h3>
 
           <?php
-            $get_products = "SELECT * FROM products ORDER BY product_id DESC LIMIT 0, 3"; // ORDER BY id product_id DESC LIMIT '$start_from', '$per_page'
+            $get_products = "SELECT * FROM products ORDER BY RAND() DESC LIMIT 0, 3"; // ORDER BY id product_id DESC LIMIT '$start_from', '$per_page'
             $run_products = mysqli_query($con, $get_products);
             
             while($row_products = mysqli_fetch_array($run_products)){
@@ -169,3 +172,7 @@
     <?php include("includes/footer.php"); ?>
   </body>
 </html>
+
+<!--
+  setCustomValidity
+-->

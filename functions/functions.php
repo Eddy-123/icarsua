@@ -13,6 +13,7 @@ function getRealIpUser(){
 }
 
 function add_cart(){
+    echo "<h1>add cart</h1>";
     global $db;
     if(isset($_GET['add_cart'])){
         $ip_address = getRealIpUser();
@@ -20,15 +21,29 @@ function add_cart(){
         $product_qty = $_POST['product_qty'];
         $product_size = $_POST['product_size'];
 
-        $check_product = "SELECT * FROM cart WHERE product_id = $product_id AND ip_address = $ip_address";
+        echo $ip_address;
+        echo $product_id;
+        echo $product_qty;
+        echo $product_size;
+        
+
+        $check_product = "SELECT * FROM cart WHERE product_id='$product_id' AND ip_address='$ip_address';";
         $run_check = mysqli_query($db, $check_product);
+        echo "<br/>selection du produit dans panier donne :";
+        var_dump($run_check);
 
         if(mysqli_num_rows($run_check) > 0){
-            echo "<script>alert('Ce produit est déjà ajouté au panier')</script>";
+            echo "<script>alert('Veuillez consulter votre panier, cette voiture est déjà sélectionnée')</script>";
             echo "<script>window.open('details.php?product_id=$product_id','_self')</script>";
             
         } else {
-            $query = "INSERT INTO cart(product_id, ip_address, quantity, size) VALUES($product_id, $ip_address, $quantity, $size)";
+            $query = "INSERT INTO cart(product_id, ip_address, quantity, size) VALUES('$product_id', '$ip_address', '$product_qty', '$product_size');";
+            $run_query = mysqli_query($db, $query);
+            echo "<br\><br\><br\>insertion dans cart =";
+            var_dump($run_query);
+            echo "<script>alert('La voiture est ajoutée avec succès au panier')</script>";
+            echo "<script>window.open('details.php?product_id=$product_id','_self')</script>";
+            
         }
     }
 }
