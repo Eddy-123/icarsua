@@ -154,4 +154,39 @@ function getCategoryProducts(){
         }
     }
 }
+
+function items(){
+    global $db;
+    $ip_address = getRealIpUser();
+
+    $get_items = "SELECT * FROM cart WHERE ip_address='$ip_address';";
+    $run_items = mysqli_query($db, $get_items);
+    $count_items = mysqli_num_rows($run_items);
+
+    echo $count_items;
+}
+
+function total_price(){
+    global $db;
+    $ip_address = getRealIpUser();
+    $total = 0;
+
+    $select_cart = "SELECT * FROM cart WHERE ip_address='$ip_address';";
+    $run_cart = mysqli_query($db, $select_cart);
+
+    while($record=mysqli_fetch_array($run_cart)){
+        $product_id = $record['product_id'];
+        $quantity = $record['quantity'];
+
+        $get_price = "SELECT * FROM products WHERE product_id='$product_id';";
+        $run_price = mysqli_query($db, $get_price);
+
+        while($row_price = mysqli_fetch_array($run_price)){
+            $sub_total = $row_price['product_price'] * $quantity;
+            $total += $sub_total;
+        }
+    }
+
+    echo $total." FCFA";
+}
 ?>

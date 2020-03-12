@@ -1,7 +1,3 @@
-<?
-session_start();
-$racine = $_SESSION['RACINE'];
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

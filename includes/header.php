@@ -1,5 +1,6 @@
 <?php
 include("includes/db.php");
+include("functions/functions.php");
 
 if(isset($_GET['product_id'])){
     $product_id = $_GET['product_id'];
@@ -73,7 +74,7 @@ if(isset($_GET['product_id'])){
           <ul class="menu">
             <li> <a href="customer_registration.php">Inscription</a> </li>
             <li> <a href="checkout.php">Connection</a> </li>
-            <li> <a href="cart.php">Panier</a> </li>
+            <li> <a href="cart.php">Panier <?php items(); echo " pour "; total_price(); ?></a> </li>
           </ul>
 
         </div><!-- col-md-6 end -->

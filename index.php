@@ -1,6 +1,6 @@
 <?php 
 include("includes/db.php");
-include("functions/functions.php")
+include("includes/header.php");
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include("functions/functions.php")
   </head>
   <body>
 
-    <div class="" id="top"><!-- #top begin -->
+    <?php /*<div class="" id="top"><!-- #top begin -->
 
       <div class="container"><!-- container begin -->
 
@@ -74,7 +74,8 @@ include("functions/functions.php")
 
       </div>
     
-    </nav>
+    </nav> */?>
+
 
   <section class="section-white" id="slider">
     <div class="container">
@@ -138,187 +139,7 @@ include("functions/functions.php")
   
   <h2>Les nouvelles voitures</h2>
   <div class="container-fluid" id="content">
-    <div class="row"><!--
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-2.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-2.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-2.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="product">
-          <a href="details.php">
-          <img class="img-responsive" src="admin_area/product_images/product-3.png" alt="product 1">
-          </a>
-          <div class="text">
-            <h3>
-              <a href="details.php">Honda</a>
-            </h3>
-            <p class="price">
-              500£   
-            </p>
-          </div>
-        </div>
-      </div> -->
+    <div class="row">
 
       <?php
         getProducts();
