@@ -74,7 +74,7 @@ if(isset($_GET['product_id'])){
           <ul class="menu">
             <li> <a href="customer_registration.php">Inscription</a> </li>
             <li> <a href="checkout.php">Connection</a> </li>
-            <li> <a href="cart.php">Panier <?php items(); echo " pour "; total_price(); ?></a> </li>
+            <li> <a class="btn btn-success" href="cart.php"><i class="glyphicon glyphicon-shopping-cart"> <?= items(); ?></i></a> </li>
           </ul>
 
         </div><!-- col-md-6 end -->
