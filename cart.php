@@ -1,75 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Icarsua</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" id="bootstrap-css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      
-    
-    
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js" defer></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <script type="text/javascript" src="js/index.js" defer></script>
-  </head>
-  <body>
-
-    <div class="" id="top"><!-- #top begin -->
-
-      <div class="container"><!-- container begin -->
-
-        <div class="col-md-6"><!-- col-md-6 begin -->
-          <p>Icarsua</p>
-        </div><!-- col-md-6 end -->
-
-        <div class="col-md-6"><!-- col-md-6 begin -->
-
-          <ul class="menu">
-            <li> <a href="customer_registration.php">Inscription</a> </li>
-            <li> <a href="checkout.php">Connection</a> </li>
-            <li> <a href="cart.php">Panier</a> </li>
-          </ul>
-
-        </div><!-- col-md-6 end -->
-
-      </div><!-- container end -->
-
-    </div><!-- #top end -->
-
-    <nav class="navbar navbar-default" id="navbar">
-    
-      <div class="container">
-
-        <a href="index.php" class="navbar-brand">LOGO</a>
-        
-        <div class="" id="navigation">
-            <ul class="nav navbar-nav">
-              <li><a href="index.php">Acceuil</a></li>
-              <li><a href="shop.php">Boutique</a></li>
-              <li><a href="customer/my_account.php">Compte</a></li>
-              <li class="active"><a href="cart.php">Panier</a></li>
-              <li><a href="contact.php">Contact</a></li>
-            </ul>
-          
-            <!-- Search form -->
-            <form class="form-inline md-form form-sm" action="results.php" method="get">
-              <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Recherche"
-                aria-label="Search" required>
-                <button type="submit" ><i type="submit" class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
-          
-          </div>
-
-          </div>
-        </div>
-
-      </div>
-    
-    </nav>
+<?php 
+include("includes/db.php");
+include("includes/header.php");
+?>
 
     <nav aria-label="breadcrumb" class="col-md-12">
         <ol class="breadcrumb">
@@ -82,6 +14,13 @@
     <div class="col-md-9" id="cart">
       <form action="cart.php" method="post">
       <h1>Panier</h1>
+      <?php
+        $ip_address = getRealIpUser();
+        $get_cart = "SELECT * FROM cart WHERE ip_address='$ip_address';";
+        $run_cart = mysqli_query($db, $get_cart);
+        $count = mysqli_num_rows($run_cart);
+      ?>
+      <p class="text-muted">Vous avez choisi <?= $count ?> voitures</p>
         <div class="table responsive">
         
             <table class="table table-striped">
@@ -90,79 +29,48 @@
                 <th colspan="2">Voiture</th>
                 <th >Quantité</th>
                 <th >Prix unitaire</th>
-                <th >Taille</th>
+                <th >Caractéristique</th>                
                 <th >Supprimer</th>
                 <th >Total partiel</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td class="">
-                    <img src="admin_area/product_images/product-2.png" class="img-responsive"  alt="">
-                </td>
-                <td><a href="#">Honda</a></td>
-                <td>2</td>
-                <td>500£</td>
-                <td>Grande</td>
-                <td>
-                  <input type="checkbox" name="remove[]">
-                </td>
-                <td>1000£</td>
-                </tr>
-                <tr>
-            </tbody>
-            <tbody>
-                <tr>
-                <td class="">
-                    <img src="admin_area/product_images/product-1.png" class="img-responsive"  alt="">
-                </td>
-                <td><a href="#">Honda</a></td>
-                <td>2</td>
-                <td>500£</td>
-                <td>Grande</td>
-                <td>
-                  <input type="checkbox" name="remove[]">
-                </td>
-                <td>1000£</td>
-                </tr>
-                <tr>
-            </tbody>
-            <tbody>
-                <tr>
-                <td class="">
-                    <img src="admin_area/product_images/product-3.png" class="img-responsive"  alt="">
-                </td>
-                <td><a href="#">Honda</a></td>
-                <td>2</td>
-                <td>500£</td>
-                <td>Grande</td>
-                <td>
-                  <input type="checkbox" name="remove[]">
-                </td>
-                <td>1000£</td>
-                </tr>
-                <tr>
-            </tbody>
-            <tbody>
-                <tr>
-                <td class="">
-                    <img src="admin_area/product_images/product-2.png" class="img-responsive"  alt="">
-                </td>
-                <td><a href="#">Honda</a></td>
-                <td>2</td>
-                <td>500£</td>
-                <td>Grande</td>
-                <td>
-                  <input type="checkbox" name="remove[]">
-                </td>
-                <td>1000£</td>
-                </tr>
-                <tr>
-            </tbody>
+              <?php 
+                $total = 0;
+                while($row_cart=mysqli_fetch_array($run_cart)){
+                  $product_id = $row_cart['product_id'];
+                  $quantity = $row_cart['quantity'];
+                  $size = $row_cart['size'];
 
+                  $get_products = "SELECT * FROM products WHERE product_id='$product_id';";
+                  $run_products = mysqli_query($db, $get_products);
+
+                  while($row_products = mysqli_fetch_array($run_products)){
+                    $product_title = $row_products['product_title'];
+                    $product_img1 = $row_products['product_img1'];
+                    $product_price = $row_products['product_price'];
+                    $sub_total = $product_price * $quantity;
+                    $total += $sub_total;
+                  }
+              ?>
+                <tr>
+                <td class="">
+                    <img src="admin_area/product_images/<?= $product_img1 ?>" class="img-responsive"  alt="">
+                </td>
+                <td><a href="details.php?product_id=<? $product_id ?>"><?= $product_title ?></a></td>
+                <td><?= $quantity ?></a></td></td>
+                <td><?= $product_price ?></td>
+                <td><?= $size ?></td>
+                <td>
+                  <input type="checkbox" name="remove[]" value="$product_id" />
+                </td>
+                <td><?= $sub_total ?></td>
+                </tr>
+              <?php } ?>
+            </tbody>
             <tfoot>
               <th colspan="5">Total</th>
-              <th colspan="2">1000£</th>
+              <th colspan="2"><?= $total ?></th>
             </tfoot>
             </table>
         </div>
