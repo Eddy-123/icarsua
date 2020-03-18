@@ -13,14 +13,14 @@ include("includes/header.php");
 <div class="row">
     <div class="col-md-9" id="cart">
       <form action="cart.php" method="post">
-      <h1>Panier</h1>
-      <?php
-        $ip_address = getRealIpUser();
-        $get_cart = "SELECT * FROM cart WHERE ip_address='$ip_address';";
-        $run_cart = mysqli_query($db, $get_cart);
-        $count = mysqli_num_rows($run_cart);
-      ?>
-      <p class="text-muted">Vous avez choisi <?= $count ?> voitures</p>
+        <h1>Panier</h1>
+        <?php
+          $ip_address = getRealIpUser();
+          $get_cart = "SELECT * FROM cart WHERE ip_address='$ip_address';";
+          $run_cart = mysqli_query($db, $get_cart);
+          $count = mysqli_num_rows($run_cart);
+        ?>
+        <p class="text-muted">Vous avez choisi <?= $count ?> voitures</p>
         <div class="table responsive">
         
             <table class="table table-striped">
@@ -62,7 +62,7 @@ include("includes/header.php");
                 <td><?= $product_price ?></td>
                 <td><?= $size ?></td>
                 <td>
-                  <input type="checkbox" name="remove[]" value="$product_id" />
+                  <input type="checkbox" name="remove[]" value="<?= $product_id ?>" />
                 </td>
                 <td><?= $sub_total ?></td>
                 </tr>
@@ -90,6 +90,25 @@ include("includes/header.php");
         </div>
       </form>
       <br><br>
+      
+      <?php
+        function update_cart(){
+          global $db;
+          //echo "update cart";
+          if(isset($_POST['update'])){
+            foreach($_POST['remove'] as $remove_id){
+              $delete_product = "DELETE FROM cart WHERE product_id='$remove_id';";
+              $run_delete = mysqli_query($db, $delete_product);
+              //var_dump($run_delete);
+              if($run_delete){
+                echo "<script>window.open('cart.php','_self')</script>";
+              }
+            }
+          }
+        }
+
+        echo @$up_cart = update_cart();
+      ?>
       <div class="">
       
           <h3>Suggestions de voitures</h3>
