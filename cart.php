@@ -57,7 +57,7 @@ include("includes/header.php");
                 <td class="">
                     <img src="admin_area/product_images/<?= $product_img1 ?>" class="img-responsive"  alt="">
                 </td>
-                <td><a href="details.php?product_id=<? $product_id ?>"><?= $product_title ?></a></td>
+                <td><a href="details.php?product_id=<?= $product_id ?>"><?= $product_title ?></a></td>
                 <td><?= $quantity ?></a></td></td>
                 <td><?= $product_price ?></td>
                 <td><?= $size ?></td>
@@ -109,77 +109,43 @@ include("includes/header.php");
 
         echo @$up_cart = update_cart();
       ?>
+
       <div class="">
-      
           <h3>Suggestions de voitures</h3>
 
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
+          <?php
+            $get_products = "SELECT * FROM products ORDER BY RAND() DESC LIMIT 0, 3"; // ORDER BY id product_id DESC LIMIT '$start_from', '$per_page'
+            $run_products = mysqli_query($con, $get_products);
+            
+            while($row_products = mysqli_fetch_array($run_products)){
+              $product_id = $row_products['product_id'];
+              $product_title = $row_products['product_title'];
+              $product_price = $row_products['product_price'];
+              $product_img1 = $row_products['product_img1'];
+  
+              echo "
+              <div class='col-sm-3'>
+              <div class='product'>
+                  <a href='details.php?product_id=$product_id'>
+                  <img class='img-responsive same-height' src='admin_area/product_images/$product_img1' alt='produit'>
+                  </a>
+                  <div class='text'>
+                  <h3>
+                      <a href='details.php?product_id=$product_id'>$product_title</a>
+                  </h3>
+                  <p class='price'>
+                      $product_price  
+                  </p>
+                  </div>
               </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
               </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-sm-3">
-            <div class="product">
-              <a href="details.php">
-              <img class="img-responsive" src="admin_area/product_images/product-1.png" alt="product 1">
-              </a>
-              <div class="text">
-                <h3>
-                  <a href="details.php">Honda</a>
-                </h3>
-                <p class="price">
-                  500£   
-                </p>
-              </div>
-            </div>
-          </div>
+          ";
+            
+            }
+        
+          ?>
         </div>
+    
 
     </div>
 
@@ -191,7 +157,7 @@ include("includes/header.php");
           <tbody>
             <tr>
               <td>Commandes</td>
-              <th>1000£</th>
+              <th><?= $total ?></th>
             </tr>
             <tr>
               <td>Livraison</td>
@@ -203,7 +169,7 @@ include("includes/header.php");
             </tr>
             <tr>
               <td>Total</td>
-              <td>1000£</td>
+              <td><?= $total ?></td>
             </tr>
           </tbody>
         </table>
