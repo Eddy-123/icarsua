@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -23,14 +26,16 @@
       <div class="container"><!-- container begin -->
 
         <div class="col-md-6"><!-- col-md-6 begin -->
-          <p>Icarsua</p>
+          <p><?= isset($_SESSION['customer_name']) ? $_SESSION['customer_name'] : 'Icarsua' ?></p>
         </div><!-- col-md-6 end -->
 
         <div class="col-md-6"><!-- col-md-6 begin -->
 
           <ul class="menu">
             <li> <a href="../customer_registration.php">Inscription</a> </li>
-            <li> <a href="../checkout.php">Connection</a> </li>
+            <li>
+                <?= isset($_SESSION['customer_email']) ? "<a href='../logout.php'>Déconnexion</a>" : "<a href='../checkout.php'>Connexion</a>" ?>
+              </li>
             <li> <a href="../cart.php">Panier</a> </li>
             <li> <a class="btn btn-success" href="cart.php"><i class="glyphicon glyphicon-shopping-cart"> <?= items(); ?></i></a> </li>
           </ul>

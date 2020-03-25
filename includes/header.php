@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("includes/db.php");
 include("functions/functions.php");
 
@@ -51,13 +52,6 @@ if(isset($_GET['product_id'])){
       });
     </script>
 
-    <!--
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js" defer></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <script type="text/javascript" src="js/index.js" defer></script>
-    -->    
   </head>
   <body>
 
@@ -66,14 +60,16 @@ if(isset($_GET['product_id'])){
       <div class="container"><!-- container begin -->
 
         <div class="col-md-6"><!-- col-md-6 begin -->
-          <p>Icarsua</p>
+          <p><?= isset($_SESSION['customer_name']) ? $_SESSION['customer_name'] : 'Icarsua' ?></p>
         </div><!-- col-md-6 end -->
 
         <div class="col-md-6"><!-- col-md-6 begin -->
 
           <ul class="menu">
             <li> <a href="customer_registration.php">Inscription</a> </li>
-            <li> <a href="checkout.php">Connection</a> </li>
+            <li>
+                <?= isset($_SESSION['customer_email']) ? "<a href='logout.php'>Déconnexion</a>" : "<a href='checkout.php'>Connexion</a>" ?>
+              </li>
             <li> <a class="btn btn-success" href="cart.php"><i class="glyphicon glyphicon-shopping-cart"> <?= items(); ?></i></a> </li>
           </ul>
 
@@ -92,10 +88,10 @@ if(isset($_GET['product_id'])){
         <div class="" id="navigation">
             <ul class="nav navbar-nav">
               <li><a href="index.php">Acceuil</a></li>
-              <li class="active"><a href="shop.php">Boutique</a></li>
+              <li class=""><a href="shop.php">Boutique</a></li>
               <li><a href="customer/my_account.php">Compte</a></li>
               <li><a href="cart.php">Panier</a></li>
-              <li><a href="contact.php">Contact</a></li>
+              <li><a href="contact.php">Contact</a></li>              
             </ul>
           
             <!-- Search form -->

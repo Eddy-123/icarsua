@@ -1,75 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Icarsua</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" id="bootstrap-css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      
-    
-    
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js" defer></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <script type="text/javascript" src="js/index.js" defer></script>
-  </head>
-  <body>
-
-    <div class="" id="top"><!-- #top begin -->
-
-      <div class="container"><!-- container begin -->
-
-        <div class="col-md-6"><!-- col-md-6 begin -->
-          <p>Icarsua</p>
-        </div><!-- col-md-6 end -->
-
-        <div class="col-md-6"><!-- col-md-6 begin -->
-
-          <ul class="menu">
-            <li> <a href="customer_registration.php">Inscription</a> </li>
-            <li> <a href="checkout.php">Connection</a> </li>
-            <li> <a href="cart.php">Panier</a> </li>
-          </ul>
-
-        </div><!-- col-md-6 end -->
-
-      </div><!-- container end -->
-
-    </div><!-- #top end -->
-
-    <nav class="navbar navbar-default" id="navbar">
-    
-      <div class="container">
-
-        <a href="index.php" class="navbar-brand">LOGO</a>
-        
-        <div class="" id="navigation">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.php">Acceuil</a></li>
-              <li><a href="shop.php">Boutique</a></li>
-              <li><a href="customer/my_account.php">Compte</a></li>
-              <li><a href="cart.php">Panier</a></li>
-              <li><a href="contact.php">Contact</a></li>
-            </ul>
-          
-            <!-- Search form -->
-            <form class="form-inline md-form form-sm" action="results.php" method="get">
-              <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Recherche"
-                aria-label="Search" required>
-                <button type="submit" ><i type="submit" class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
-          
-          </div>
-
-          </div>
-        </div>
-
-      </div>
-    
-    </nav>
+<?php 
+session_start();
+include("includes/header.php"); 
+?>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -88,7 +20,7 @@
                 Inscription
             </h3>
         </center>
-            <form action="contact.php" method="post" enctype="multipart/form-data">
+            <form action="customer_registration.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="c_name">Votre nom</label>
                     <input type="text" class="form-control" name="c_name" required>
@@ -131,3 +63,45 @@
     <?php include("includes/footer.php"); ?>
   </body>
 </html>
+
+<?php 
+    
+    if (isset($_POST['register'])) {
+        $c_name = $_POST['c_name']; 
+        $c_email = $_POST['c_email'];
+        $c_pass = $_POST['c_pass'];
+        $c_country = $_POST['c_country']; 
+        $c_city = $_POST['c_city'];
+        $c_contact = $_POST['c_contact'];
+        $c_address = $_POST['c_address'];
+        $c_image = $_FILES['c_image']['name'];
+        $c_image_tmp = $_FILES['c_image']['tmp_name'];
+        $c_ip = getRealIpUser();
+
+        move_uploaded_file($c_image_tmp, "customer/customer_images/$c_image");
+
+        $insert_customer = "INSERT INTO customers(customer_name, customer_email, customer_pass, customer_country, customer_city, customer_contact, customer_address, customer_image, customer_ip) VALUES('$c_name', '$c_email', '$c_pass', '$c_country', '$c_city', '$c_contact', '$c_address', '$c_image', '$c_ip');";
+
+        $run_customer = mysqli_query($db, $insert_customer);
+
+        $select_cart = "SELECT * FROM cart WHERE ip_address='$c_ip'";
+
+        $run_cart = mysqli_query($db, $select_cart);
+
+        $check_cart = mysqli_num_rows($run_cart);
+
+        if ($check_cart > 0) {
+            $_SESSION['customer_email'] = $c_email;
+            $_SESSION['customer_name'] = $c_name;
+            echo "<script>alert('Inscription éffectuée avec succès !')</script>";
+            echo "<script>window.open('checkout.php', '_self')</script>";
+        }else{
+
+            $_SESSION['customer_email'] = $c_email;
+            $_SESSION['customer_name'] = $c_name;
+            echo "<script>alert('Inscription éffectuée avec succès !')</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
+        }
+    }
+
+ ?>
